@@ -8,6 +8,7 @@ class SyntaxView extends StatefulWidget {
       {required this.code,
       required this.syntax,
       this.syntaxTheme,
+      this.width,
       this.withZoom = true,
       this.withLinesCount = true,
       this.fontSize = 12.0,
@@ -15,6 +16,8 @@ class SyntaxView extends StatefulWidget {
 
   /// Code text
   final String code;
+
+  final double? width;
 
   /// Syntax/Langauge (Dart, C, C++...)
   final Syntax syntax;
@@ -48,6 +51,7 @@ class SyntaxViewState extends State<SyntaxView> {
   Widget build(BuildContext context) {
     return Stack(alignment: AlignmentDirectional.bottomEnd, children: <Widget>[
       Container(
+        width: widget.width,
           padding: widget.withLinesCount
               ? const EdgeInsets.only(left: 5, top: 10, right: 10, bottom: 10)
               : const EdgeInsets.all(10),
